@@ -170,7 +170,7 @@ maps <- map(seq_len(nrow(fles)), function(i){
   
   ## A single colour scale for all the months and years of the variable
   lims <- get.lims(rst, qntl = qntl)
-  
+  yrss <- get.ym(rst) |> pull(year) |> unique()
   
 })
 
