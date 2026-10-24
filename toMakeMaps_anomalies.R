@@ -170,17 +170,7 @@ maps <- map(seq_len(nrow(fles)), function(i){
   
   ## A single colour scale for all the months and years of the variable
   lims <- get.lims(rst, qntl = qntl)
-  yrss <- get.ym(rst) |> pull(year) |> unique()
-  cat('Years: ', min(yrss), '-', max(yrss), ' (', length(yrss), ' PNG) | limits: ±', lims[2], '\n', sep = '')
   
-  ## One PNG per year, 12 months each
-  gmps <- map(yrss, function(y){
-    make.map(rst = rst, year = y, vari = fle$vari, rela = fle$rela, lims = lims, dout = dout)
-  })
-  names(gmps) <- yrss
-  
-  cat('Done!\n')
-  return(gmps)
   
 })
 
