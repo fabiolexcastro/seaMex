@@ -174,7 +174,3 @@ maps <- map(seq_len(nrow(fles)), function(i){
   
 })
 
-names(maps) <- fles$vari
-
-# Check -------------------------------------------------------------------
-maps[[1]][[length(maps[[1]])]]
