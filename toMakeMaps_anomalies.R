@@ -177,7 +177,10 @@ maps <- map(seq_len(nrow(fles)), function(i){
   gmps <- map(yrss, function(y){
     make.map(rst = rst, year = y, vari = fle$vari, rela = fle$rela, lims = lims, dout = dout)
   })
-  
+  names(gmps) <- yrss
+
+  cat('Done!\n')
+  return(gmps)
   
 })
 
