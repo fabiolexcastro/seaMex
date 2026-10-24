@@ -175,7 +175,7 @@ maps <- map(seq_len(nrow(fles)), function(i){
   
   ## One PNG per year, 12 months each
   gmps <- map(yrss, function(y){
-    
+    make.map(rst = rst, year = y, vari = fle$vari, rela = fle$rela, lims = lims, dout = dout)
   })
   
   
