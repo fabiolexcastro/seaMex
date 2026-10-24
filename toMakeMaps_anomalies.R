@@ -173,6 +173,11 @@ maps <- map(seq_len(nrow(fles)), function(i){
   yrss <- get.ym(rst) |> pull(year) |> unique()
   cat('Years: ', min(yrss), '-', max(yrss), ' (', length(yrss), ' PNG) | limits: ±', lims[2], '\n', sep = '')
   
+  ## One PNG per year, 12 months each
+  gmps <- map(yrss, function(y){
+    
+  })
+  
   
 })
 
