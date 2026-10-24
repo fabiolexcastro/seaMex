@@ -11,3 +11,5 @@ sf_use_s2(FALSE)
 
 # Parameters --------------------------------------------------------------
 root <- './tif/anom_yearly'
+fles <- dir_ls(root)
+
