@@ -23,7 +23,8 @@ mxds <- 50
 
 intl.bilf <- function(anom, tmpl, mxds = 50){
   
-  
+  ## To start 
+  cat('To start the blinear + IDW fill: ', names(anom)[1], ' (', terra::nlyr(anom), ' layers) \n', sep = '')
   
 }
 
