@@ -16,6 +16,10 @@ fles <- dir_ls(root)
 ## Template mask 
 tmpl <- terra::rast('../tif/baseline/raw_mex/thetao_6stats_baseline_2010_depthsurf.tif')
 
+## Mexico 
+mex0 <- geodata::gadm(country = 'MEX', level = 1, path = './tmpr')
+plot(mex0)
+
 # Function to interpolate: Bilinear + IDW  --------------------------------
 anom <- terra::rast(fles[1])
 tmpl <- tmpl
@@ -37,7 +41,8 @@ intl.bilf <- function(anom, tmpl, mxds = 50){
     pts <- as.matrix(pts)
     idw <- terra::interpIDW(tmpl, pts, radius = mxds / 111, power = 2, maxPoints = 8)
     rst <- terra::cover(bil[[i]], idw) 
-  })
+  }) |> 
+    terra::crop(r)
   
   
   
