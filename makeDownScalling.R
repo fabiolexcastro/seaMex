@@ -80,6 +80,12 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
   dst <- terra::distance(cvr)
   trg <- trg %>% mutate(dist = terra::extract(dst, cell)[, 1] / 1000) %>% filter(dist <= mxds)
   
+  ## Simple conditional
+  if(is.null(basn)){
+    trg$bsn <- 0
+    bsc     <- NULL
+  }
+  
   
 }
 
