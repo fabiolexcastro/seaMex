@@ -46,8 +46,10 @@ intl.bilf <- function(anom, tmpl, mxds = 50){
     idw <- terra::interpIDW(tmpl, pts, radius = mxds / 111, power = 2, maxPoints = 8)
     rst <- terra::cover(bil[[i]], idw) 
   }) |> 
-    terra::crop(r)
+    rast() |> 
+    mask(tmpl)
   
+  plo(out[[1]])
   
   
 }
