@@ -86,8 +86,16 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
     bsc     <- NULL
   }
   
+  ## Layer by layer
+  out <- map(1:nlyr(anom), function(i){
+    
+    cat('Layer ', i, ' of ', terra::nlyr(anom), '\n', sep = '')
+    lyr <- anom[[i]]
+    
+  })
   
 }
 
 
 
+#
