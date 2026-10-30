@@ -21,6 +21,9 @@ mex0 <- geodata::gadm(country = 'MEX', level = 1, path = './tmpr')
 land <- geodata::world(resolution = 1, level = 0, path = './tmpr')
 plot(mex0)
 
+## Template adjust
+tmpl <- terra::mask(tmpl, land, inverse = T, touches = F)
+
 # Function to interpolate: Bilinear + IDW  --------------------------------
 anom <- terra::rast(fles[1])
 tmpl <- tmpl
