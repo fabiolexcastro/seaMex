@@ -33,7 +33,8 @@ intl.bilf <- function(anom, tmpl, mxds = 50){
   ## IDW (nearest, power) 
   out <- map(1:nlyr(anom), function(i){
     cat('Layer : ', i, '\t')
-    
+    pts <- terra::as.data.frame(anom[[i]], xy = T, na.rm = T)
+    pts <- as.matrix(pts)
   })
   
   
