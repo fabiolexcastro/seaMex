@@ -36,7 +36,7 @@ intl.bilf <- function(anom, tmpl, mxds = 50){
     pts <- terra::as.data.frame(anom[[i]], xy = T, na.rm = T)
     pts <- as.matrix(pts)
     idw <- terra::interpIDW(tmpl, pts, radius = mxds / 111, power = 2, maxPoints = 8)
-    
+    rst <- terra::cover(bil[[i]], idw) 
   })
   
   
