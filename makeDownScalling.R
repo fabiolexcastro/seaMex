@@ -78,7 +78,7 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
   ## Target cells / ocean cell
   cvr <- terra::resample(anom[[1]], tmpl, method = 'near')
   dst <- terra::distance(cvr)
-  
+  trg <- trg %>% mutate(dist = terra::extract(dst, cell)[, 1] / 1000) %>% filter(dist <= mxds)
   
   
 }
