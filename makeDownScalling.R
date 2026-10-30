@@ -102,6 +102,13 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
     ##
     pnt$bsn <- if(is.null(bsc)) 0 else terra::extract(bsc, pnt$cell)[, 1] %>% replace_na(0)
     
+    ## TPS
+    prd <- map_dfr(sort(unique(trg$bsn)), function(b){
+      
+      
+      
+    })
+    
   })
   
 }  
