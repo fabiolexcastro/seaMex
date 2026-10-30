@@ -94,11 +94,18 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
     pnt <- terra::as.data.frame(lyr, xy = T, cells = T, na.rm = T) %>% setNames(c('cell', 'x', 'y', 'vlue'))
     nrow(pnt)
     
+    ## A simple plot
+    plot(anom[[1]] * 0 + 1)
+    plot(mex0, add = T, border = 'grey80')
+    points(pnt$x, pnt$y, pch = 16, col = 'red', cex = 0.1)
+    
     
     
   })
   
 }
+
+
 
 
 
