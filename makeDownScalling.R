@@ -10,14 +10,19 @@ sf_use_s2(FALSE)
 # Load data ---------------------------------------------------------------
 
 # Parameters --------------------------------------------------------------
-root <- '../tif/anom'
+root <- '../tif/anom_yearly'
 fles <- dir_ls(root)
 
 ## Template mask 
 tmpl <- terra::rast('../tif/baseline/raw_mex/thetao_6stats_baseline_2010_depthsurf.tif')
 
 # Function to interpolate: Bilinear + IDW  --------------------------------
+anom <- terra::rast(fles[1])
+tmpl <- tmpl
+mxds <- 50
+
 intl.bilf <- function(anom, tmpl, mxds = 50){
+  
   
   
 }
