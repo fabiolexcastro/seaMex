@@ -30,6 +30,12 @@ intl.bilf <- function(anom, tmpl, mxds = 50){
   bil <- terra::resample(anom, tmpl, method = 'bilinear')
   plot(bil[[1]])
   
+  ## IDW (nearest, power) 
+  out <- map(1:nlyr(anom), function(i){
+    cat('Layer : ', i, '\t')
+    
+  })
+  
   
   
 }
