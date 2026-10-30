@@ -49,7 +49,12 @@ intl.bilf <- function(anom, tmpl, mxds = 50){
     rast() |> 
     mask(tmpl)
   
-  plo(out[[1]])
+  plot(out[[1]])
+  
+  ## To add the names and the time
+  names(out) <- names(anom)
+  if(terra::has.time(anom)) terra::time(out, tstep = terra::timeInfo(anom)$step) <- terra::time(anom)
+  
   
   
 }
