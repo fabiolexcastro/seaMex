@@ -75,6 +75,9 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
   ## Target cells: ocean cells of the template
   trg <- terra::as.data.frame(tmpl, xy = T, cells = T, na.rm = T) %>% dplyr::select(cell, x, y)
   
+  ## Target cells / ocean cell
+  cvr <- terra::resample(anom[[1]], tmpl, method = 'near')
+  cvr <- dplyr::select(cvr, cell, x, y)
   
   
 }
