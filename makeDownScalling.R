@@ -64,7 +64,7 @@ intl.bilf <- function(anom, tmpl, mxds = 50){
 }
 
 # Function to interpolate anomalies with TPS (Spline) ---------------------
-anom <- terra::rast(fles[1]); tmpl <- tmpl; basn <- basn; knts <- 800; mxds <- 50
+anom <- terra::rast(fles[1]); tmpl <- tmpl; basn <- NULL; knts <- 800; mxds <- 50
 
 inpt.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
   
