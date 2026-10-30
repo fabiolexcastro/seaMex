@@ -91,6 +91,10 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
     
     cat('Layer ', i, ' of ', terra::nlyr(anom), '\n', sep = '')
     lyr <- anom[[i]]
+    pnt <- terra::as.data.frame(lyr, xy = T, cells = T, na.rm = T) %>% setNames(c('cell', 'x', 'y', 'vlue'))
+    nrow(pnt)
+    
+    
     
   })
   
