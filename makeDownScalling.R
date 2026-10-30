@@ -18,6 +18,7 @@ tmpl <- terra::rast('../tif/baseline/raw_mex/thetao_6stats_baseline_2010_depthsu
 
 ## Mexico 
 mex0 <- geodata::gadm(country = 'MEX', level = 1, path = './tmpr')
+land <- geodata::world(resolution = 1, level = 0, path = './tmpr')
 plot(mex0)
 
 # Function to interpolate: Bilinear + IDW  --------------------------------
