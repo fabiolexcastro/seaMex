@@ -51,6 +51,8 @@ intl.bilf <- function(anom, tmpl, mxds = 50){
   
   plot(out[[1]])
   
+  out <- terra::crop(out, anom[[1]], snap = 'out')
+  
   ## To add the names and the time
   names(out) <- names(anom)
   if(terra::has.time(anom)) terra::time(out, tstep = terra::timeInfo(anom)$step) <- terra::time(anom)
