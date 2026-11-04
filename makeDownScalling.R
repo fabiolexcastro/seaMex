@@ -143,6 +143,14 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
   
 }  
 
+## Function to test the methods (perfect-model test) --------------------------
+test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
+  
+
+  
+  
+  
+}
 
 
 #
