@@ -172,6 +172,7 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
     tps      = intp.tps(anom = crs, tmpl = trth, basn = NULL, knts = knts),
     tps.basn = if(!is.null(basn)) intp.tps(anom = crs, tmpl = trth, basn = basn, knts = knts)
   ) %>% compact()
+  rsl$bil.idw <- terra::cover(rsl$bilinear, rsl$idw)
   
   
 }
