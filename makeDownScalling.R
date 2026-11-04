@@ -149,6 +149,11 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
   cat('To start!\n')
   # trth <- terra::rast(fles[1])[[1]]; fact <- 3; basn <- basn; knts <- 800
   frc <- terra::aggregate(!is.na(trth), fact = fact, fun = 'mean')
+  crs <- terra::aggregate(trth, fact = fact, fun = 'mean', na.rm = T)
+  crs <- terra::ifel(frc >= 0.5, crs, NA)
+  
+  
+  
   
 }
 
