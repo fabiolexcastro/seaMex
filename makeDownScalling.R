@@ -173,6 +173,11 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
     tps.basn = if(!is.null(basn)) intp.tps(anom = crs, tmpl = trth, basn = basn, knts = knts)
   ) %>% compact()
   rsl$bil.idw <- terra::cover(rsl$bilinear, rsl$idw)
+  rsl <- rsl %>% map(~ terra::mask(.x, trth))
+  
+  ## Zones: all ocean, coastal band (< 25 km from land) 
+  lnd <- terra::ifel(is.na(trth), 1, NA)
+  
   
   
 }
