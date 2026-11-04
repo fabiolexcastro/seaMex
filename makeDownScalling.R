@@ -89,6 +89,13 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
   ## Layer by layer
   out <- map(1:nlyr(anom), function(i){
     
+    ## Output file of the layers: it it already exists, akip it
+    fle <- glue('{dout}/{names(anom)[i]}_tps005.tif')
+    if(file.exists(fle)){
+      cat('Layer ', i, ' of ', terra::nlyr(anom), ': already written -> skip\n', sep = '')
+      return(terra::rast(fle))
+    }
+    
     cat('Layer ', i, ' of ', terra::nlyr(anom), '\n', sep = '')
     lyr <- anom[[i]]
     pnt <- terra::as.data.frame(lyr, xy = T, cells = T, na.rm = T) %>% setNames(c('cell', 'x', 'y', 'vlue'))
