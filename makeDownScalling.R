@@ -105,6 +105,9 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
     ## TPS
     prd <- map_dfr(sort(unique(trg$bsn)), function(b){
       
+      cat('Processing....!\t')
+      pnb <- pnt |> filter(bsn == b) |> mutate(xs = x * cos)
+      
       
       
     })
