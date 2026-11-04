@@ -177,7 +177,7 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
   
   ## Zones: all ocean, coastal band (< 25 km from land) 
   lnd <- terra::ifel(is.na(trth), 1, NA)
-  
+  dst <- terra::distance(lnd) / 1000
   
   
 }
