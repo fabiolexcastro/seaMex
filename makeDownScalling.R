@@ -1,7 +1,7 @@
 
 # Load libraries ----------------------------------------------------------
 library(pacman)
-p_load(terra, tidyverse, glue, stringr, fs, RColorBrewer, ggspatial, sf, rnaturalearth, rnaturalearthdata)
+p_load(terra, tidyverse, glue, stringr, mgcv, fs, RColorBrewer, ggspatial, sf, rnaturalearth, rnaturalearthdata)
 
 rm(list = ls())
 sf_use_s2(FALSE)
@@ -118,6 +118,7 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
       kkk <- min(knts, floor(nrow(pnb) / 3))
       set.seed(1)
       
+      ## GAM model 
       
     })
     
