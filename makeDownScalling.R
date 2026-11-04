@@ -165,12 +165,19 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
   
   ## Back to the fine grid with each method
   pts <- terra::as.data.frame(crs, xy = T, na.rm = T) %>% as.matrix()
+  rsl <- list(
+    near     = terra::resample(crs, trth, method = 'near'),
+    bilinear = terra::resample(crs, trth, method = 'bilinear'),
+    idw      = terra::interpIDW(trth, pts, radius = 3 * terra::res(crs)[1], power = 2, maxPoints = 8),
+    tps      = intp.tps(anom = crs, tmpl = trth, basn = NULL, knts = knts),
+    tps.basn = if(!is.null(basn)) intp.tps(anom = crs, tmpl = trth, basn = basn, knts = knts)
+  ) %>% compact()
   
   
 }
 
 
-##
+###
 
 
 
