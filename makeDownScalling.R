@@ -152,7 +152,8 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
   crs <- terra::aggregate(trth, fact = fact, fun = 'mean', na.rm = T)
   crs <- terra::ifel(frc >= 0.5, crs, NA)
   
-  
+  ## Back to the fine grid with each method
+  pts <- terra::as.data.frame(crs, xy = T, na.rm = T) %>% as.matrix()
   
   
 }
