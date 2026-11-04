@@ -187,7 +187,8 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
   stk <- terra::rast(c(list(trth = trth, dist = dst, zone = zns), rsl))
   names(stk) <- c('trth', 'dist', 'zone', names(rsl))
   tbl <- terra::as.data.frame(stk, na.rm = F) %>% as_tibble() %>% filter(!is.na(trth))
-  
+  lbl <- if(is.null(basn)) 'other' else c('other', basn$basin)
+  tbl <- tbl %>% mutate(zone = lbl[zone + 1])
   
   
   
