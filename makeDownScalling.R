@@ -139,7 +139,7 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
     rst[prd$cell] <- prd$vlue
     
     ## To write the raster
-    
+    terra::writeRaster(x = rst, filename = fle, overwrite = T)
     return(rst)
     
   })
