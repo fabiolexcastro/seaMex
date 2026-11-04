@@ -118,7 +118,10 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
       kkk <- min(knts, floor(nrow(pnb) / 3))
       set.seed(1)
       
-      ## GAM model 
+      ## Generalized additive models [GAM]
+      mdl <- gam(vlue ~ s(xs, y, bs = 'tp', k = kkk), data = pnb, method = 'REML')
+      
+      
       
     })
     
