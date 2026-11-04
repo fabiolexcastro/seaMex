@@ -185,7 +185,7 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
     zns <- terra::rasterize(basn, trth, field = 'bid', background = 0)
   }
   stk <- terra::rast(c(list(trth = trth, dist = dst, zone = zns), rsl))
-  
+  names(stk) <- c('trth', 'dist', 'zone', names(rsl))
   
 }
 
