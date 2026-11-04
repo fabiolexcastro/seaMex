@@ -129,11 +129,11 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
     ##
     rst <- terra::rast(tmpl)
     rst[prd$cell] <- prd$vlue
-    
-    
-    
+    return(rst)
     
   })
+  
+  
   
 }  
 
