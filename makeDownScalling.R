@@ -192,12 +192,28 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
   
   ## Metrics, validation
   comm <- complete.cases(tbl[, names(rsl)])
-  
+  evl  <- map_dfr(names(rsl), function(m){
+    err <- tbl[[m]] - tbl$trth
+    sub <- list('all ocean' = rep(T, nrow(tbl)), 'coast < 25 km' = tbl$dist < 25)
+    for(z in unique(tbl$zone)) sub[[glue('basin: {z}')]] <- tbl$zone == z
+    imap_dfr(sub, function(s, z){
+      tibble(method = m, zone = z, cover = mean(!is.na(tbl[[m]][s])) * 100,
+             rmse = sqrt(mean(err[s & comm]^2)), mxae = max(abs(err[s & comm])))
+    }) %>%
+      bind_rows(tibble(method = m, zone = 'coast gap (no bilinear)',
+                       cover = mean(!is.na(tbl[[m]][is.na(tbl$bilinear)])) * 100,
+                       rmse  = sqrt(mean(err[is.na(tbl$bilinear)]^2, na.rm = T)),
+                       mxae  = suppressWarnings(max(abs(err[is.na(tbl$bilinear)]), na.rm = T))))
+  })
+
+  ## Finish!
+  cat('Done!\n')
+  return(evl)
   
 }
 
 
-###
+####
 
 
 
