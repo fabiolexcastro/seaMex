@@ -108,7 +108,11 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
       pnb <- pnt |> filter(bsn == b) |> mutate(xs = x * cos)
       tgb <- trg |> filter(bsn == b) |> mutate(xs = x * cos)
       
-      
+      ## Conditional by points
+      if(nrow(pnb) < 30){
+        cat('Basin ', b, ': only ', nrow(pnb), ' coarse cells -> NA\n', sep = '')
+        return(tgb %>% mutate(vlue = NA_real_))
+      }
       
       
     })
