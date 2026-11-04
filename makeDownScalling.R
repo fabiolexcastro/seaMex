@@ -133,10 +133,19 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
     
   })
   
+  ## Same names and time as the input
+  out <- terra::rast(out)
+  names(out) <- names(anom)
+  if(terra::has.time(anom)) terra::time(out, tstep = terra::timeInfo(anom)$step) <- terra::time(anom)
   
+  cat('Done!\n')
+  return(out)
   
 }  
 
+
+
+#
 
 
 
