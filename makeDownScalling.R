@@ -110,6 +110,7 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
       
       ## Conditional by points
       if(nrow(pnb) < 30){
+        nrow(pnb)
         cat('Basin ', b, ': only ', nrow(pnb), ' coarse cells -> NA\n', sep = '')
         return(tgb %>% mutate(vlue = NA_real_))
       }
