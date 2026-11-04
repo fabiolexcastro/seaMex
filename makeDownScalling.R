@@ -190,7 +190,8 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
   lbl <- if(is.null(basn)) 'other' else c('other', basn$basin)
   tbl <- tbl %>% mutate(zone = lbl[zone + 1])
   
-  
+  ## Metrics, validation
+  comm <- complete.cases(tbl[, names(rsl)])
   
   
 }
