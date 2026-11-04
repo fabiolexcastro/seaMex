@@ -147,8 +147,8 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
 test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
   
   cat('To start!\n')
-  
-  
+  # trth <- terra::rast(fles[1])[[1]]; fact <- 3; basn <- basn; knts <- 800
+  frc <- terra::aggregate(!is.na(trth), fact = fact, fun = 'mean')
   
 }
 
