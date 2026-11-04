@@ -122,9 +122,12 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
       mdl <- gam(vlue ~ s(xs, y, bs = 'tp', k = kkk), data = pnb, method = 'REML')
       edf <- sum(mdl$edf) - 1
       tgb$vlue <- predict(mdl, newdata = tgb) %>% as.numeric()
-      
+      return(tgb)
       
     })
+    
+    
+    
     
   })
   
