@@ -68,6 +68,7 @@ anom <- terra::rast(fles[1]); tmpl <- tmpl; basn <- NULL; knts <- 800; mxds <- 5
 intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
   
   ## To start 
+  dout <- './tif/anom_005/tps'; dir_create(dout)
   cat('To start the TPS: ', names(anom)[1], ' (', terra::nlyr(anom), ' layers)\n', sep = '')
   cos <- cos(mean(as.vector(terra::ext(tmpl))[3:4]) * pi / 180)   # Degrees [Coseno]
   
@@ -129,6 +130,9 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
     ##
     rst <- terra::rast(tmpl)
     rst[prd$cell] <- prd$vlue
+    
+    ## To write the raster
+    
     return(rst)
     
   })
