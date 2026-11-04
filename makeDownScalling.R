@@ -115,6 +115,9 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
         return(tgb %>% mutate(vlue = NA_real_))
       }
       
+      kkk <- min(knts, floor(nrow(pnb) / 3))
+      set.seed(1)
+      
       
     })
     
