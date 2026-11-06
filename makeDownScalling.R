@@ -218,7 +218,13 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
 ## 1. Test: thetao native 0.083 deg -> degraded to 0.25 deg -> back to 0.083 deg
 ## Year: 2020
 trth <- terra::rast(fles[str_detect(basename(fles), '^thetao')])[[21]]  
+test <- test.intp(trth = trth, fact = 3, basn = basn)
+test %>% dplyr::select(method, zone, rmse) %>% pivot_wider(names_from = method, values_from = rmse)
 
+## 2. Interpolate all the anomalies to the Bio-ORACLE grid (0.05 deg)
+## TPS only with basins (without them it leaks across Baja California); else bilinear + IDW fill
+dout <- './tif/anom_005'
+dir_create(dout)
 
 
 #
