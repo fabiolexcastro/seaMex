@@ -86,7 +86,7 @@ intp.tps  <- function(anom, tmpl, basn = NULL, knts = 800, mxds = 50){
     bsc     <- NULL
   }
   
-  ## Layer by layer
+  ## Layer by layer 
   out <- map(1:nlyr(anom), function(i){
     
     ## Output file of the layers: it it already exists, akip it
@@ -209,12 +209,15 @@ test.intp <- function(trth, fact = 3, basn = NULL, knts = 800){
   ## Finish!
   cat('Done!\n')
   return(evl)
-  
+
 }
 
 
-####
+# To apply the function ---------------------------------------------------
 
+## 1. Test: thetao native 0.083 deg -> degraded to 0.25 deg -> back to 0.083 deg
+## Year: 2020
+trth <- terra::rast(fles[str_detect(basename(fles), '^thetao')])[[21]]  
 
 
 
