@@ -226,5 +226,12 @@ test %>% dplyr::select(method, zone, rmse) %>% pivot_wider(names_from = method, 
 dout <- './tif/anom_005'
 dir_create(dout)
 
-
+map(fles, function(fle){
+  
+  ##
+  anm <- terra::rast(fle)
+ 
+  ## To write the raster
+   
+})
 #
