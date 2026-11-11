@@ -228,9 +228,11 @@ dir_create(dout)
 
 map(fles, function(fle){
   
-  ##
+  ## To start!
+  cat('To process: ', fle, '\n')
   anm <- terra::rast(fle)
- 
+  rst <- if(is.null(basn)) intp.bilf(anom = anm, tmpl = tmpl, mxds = 50)
+  
   ## To write the raster
    
 })
