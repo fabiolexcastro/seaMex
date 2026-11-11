@@ -234,6 +234,8 @@ map(fles, function(fle){
   rst <- if(is.null(basn)) intp.bilf(anom = anm, tmpl = tmpl, mxds = 50) else intp.tps(anom = anm, tmpl = tmpl, basn = basn)
   
   ## To write the raster
+  terra::writeRaster(x = rst, filename = glue('{dout}/{path_ext_remove(basename(fle))}_005.tif'), overwrite = T)
+  
    
 })
 #
